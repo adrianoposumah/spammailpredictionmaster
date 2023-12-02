@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spam Mail Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        background-image: url("/static/5334383.jpg");
+        background-size: cover;
+        /* background-position: center; */
+        color: white;
+      }
+      .content {
+        text-align: center;
+        margin: 10rem 30rem 0rem 30rem;
+      }
+      .form-label {
+        float: left;
+      }
+      textarea {
+        height: 150px;
+        resize: none;
+        overflow: auto;
+      }
+      .result-body h2 {
+        /* background-color: #ffffff; */
+        font-size: 30px;
+        margin: 0 15rem;
+        border-radius: 10px;
+      }
+      .ham-mail {
+        background-color: #81ff70;
+      }
+
+      .spam-mail {
+        background-color: #ab5b5b;
+      }
+
+      /* CSS untuk layar lebar (75%) */
+      @media (max-width: 1440px) {
+        .content {
+          margin: 10rem 9rem 0rem 9rem;
+        }
+        .result-body h2 {
+          /* background-color: #ffffff; */
+          font-size: 30px;
+          margin: 0 1rem;
+          border-radius: 10px;
+        }
+      }
+
+      /* CSS untuk layar ponsel (50%) */
+      @media (max-width: 767px) {
+        .content {
+          text-align: center;
+          margin: 10rem 1rem 0rem 1rem;
+        }
+        .result-body h2 {
+          /* background-color: #ffffff; */
+          font-size: 30px;
+          margin: 0 1rem;
+          border-radius: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="title">
+        <h1>Mail Spam Prediction</h1>
+      </div>
+      <div class="form-body mt-5">
+        <form method="post" action="/">
+          <div class="mb-3">
+            <label for="email" class="form-label">Enter your Mail:</label>
+            <textarea class="form-control" name="email" id="email" rows="3"></textarea>
+            <div class="d-grid gap-2 mt-2">
+              <button class="btn btn-primary" type="submit">Predict</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="result-body">
+        <h1>Prediction:</h1>
+        {% if result %}
+        <h2 class="{% if result == 'Ham mail' %}ham-mail{% else %}spam-mail{% endif %}">{{ result }}</h2>
+        {% endif %}
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
