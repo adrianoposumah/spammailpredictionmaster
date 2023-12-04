@@ -74,7 +74,7 @@
   <body>
     <div class="content">
       <div class="title">
-        <h1>Mail Spam Prediction</h1>
+        <h1>Spam Mail Prediction</h1>
       </div>
       <div class="form-body mt-5">
         <form method="post" action="/">
@@ -88,7 +88,7 @@
         </form>
       </div>
       <div class="result-body">
-        <h1>Prediction:</h1>
+        <h1>Result:</h1>
         {% if result %}
         <h2 class="{% if result == 'Ham mail' %}ham-mail{% else %}spam-mail{% endif %}">{{ result }}</h2>
         {% endif %}
